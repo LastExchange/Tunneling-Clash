@@ -69,7 +69,5 @@ proxy-groups:
     interval: 300
     use:
     - Akun Donghub
-    - WS Akun ID
-    - WS Akun SG
 rules:
   - MATCH,LYCORIS
