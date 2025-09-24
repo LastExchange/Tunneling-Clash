@@ -1,5 +1,27 @@
 #Knpsih_16 Config Clash
 
+tproxy-port: 7893
+bind-address: "*"
+mode: rule
+allow-lan: true
+log-level: silent
+external-controller: 0.0.0.0:9090
+external-ui: yacd-gh-pages
+unified-delay: true
+ipv6: false
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: redir-host
+  use-host: true
+  nameserver:
+    - 1.1.1.1
+  fallback:
+    - 1.0.0.1
+    - https://cloudflare-dns.com/dns-query
+    
+proxies:  
 proxy-providers:
   WS Akun ID:
     type: http
@@ -18,35 +40,36 @@ proxy-providers:
     interval: 1200
     
 proxy-groups:
-- name: Route WS Akun ID
-  type: load-balance
-  strategy: consistent-hashing
-  url: http://hi.bonds.id/ping
-  interval: 300
-  use:
-  - WS Akun ID
-- name: Route WS Akun SG
-  type: load-balance
-  strategy: consistent-hashing
-  url: http://hi.bonds.id/ping
-  interval: 300
-  use:
-  - WS Akun SG
-- name: Route Donghub
-  type: url-test
-  url: http://hi.bonds.id/ping
-  interval: 300
-  tolerance: 50
-  use:
-  - Akun Donghub
-- name: Traffic Umum
-  type: fallback
-  url: http://hi.bonds.id/ping
-  interval: 300
-  proxies:
-  - Route WS Akun SG
-  - Route WS Akun ID
-
+  - name: LYCORIS
+    type: select
+    proxies:
+      - LOAD-BALANCE
+      - BEST-PING
+      - FALLBACK
+      - DIRECT
+  - name: LOAD-BALANCE
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    use:
+    - WS Akun ID
+    - WS Akun SG
+  - name: BEST-PING
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    use:
+    - WS Akun ID
+    - WS Akun SG
+  - name: FALLBACK
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    use:
+    - Akun Donghub
+    - WS Akun ID
+    - WS Akun SG
 rules:
-- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-- MATCH,GLOBAL
+  - MATCH,LYCORIS
