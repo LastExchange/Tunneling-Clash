@@ -1,59 +1,31 @@
 proxies:
-  - name: ID Sanggoro Trojan 15.lowh.net
+  - name: (ID) Pt Pusat Media 🇮🇩
     server: ava.game.naver.com
     port: 443
-    type: trojan
-    password: 58941480-8899-11f0-a886-1577c1651679
-    skip-cert-verify: true
-    sni: 15-lowh.net
-    network: ws
-    ws-opts:
-      path: /welcome
-      headers:
-        Host: 15-lowh.net
-    udp: true
-  - name: ID Sanggoro Trojan 15.lowh.net Wildcard
-    server: ava.game.naver.com
-    port: 443
-    type: trojan
-    password: 58941480-8899-11f0-a886-1577c1651679
-    skip-cert-verify: true
-    sni: ava.game.naver.com.15-lowh.kratod.my.id
-    network: ws
-    ws-opts:
-      path: /welcome
-      headers:
-        Host: ava.game.naver.com.15-lowh.kratod.my.id
-    udp: true
-  - name: ID Sanggoro Vmess 14.lowh.net
-    server: ava.game.naver.com
-    port: 443
-    type: vmess
-    uuid: 3e49bf50-8899-11f0-850b-1577c1651679
-    alterId: 0
+    type: vless
+    uuid: fd1d10c3-2185-421a-93f1-042f81c014e7
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: 14.lowh.net
+    servername: violetvpn.my.id
     network: ws
     ws-opts:
-      path: /hello
+      path: /id-pusat
       headers:
-        Host: 14.lowh.net
+        Host: violetvpn.my.id
     udp: true
-  - name: ID Sanggoro Vmess NTLS 14.lowh.net
+  - name: (ID) Pt Pusat Media 🇮🇩 Wildcard
     server: ava.game.naver.com
-    port: 80
-    type: vmess
-    uuid: 0261b040-98dd-11f0-9f27-1577c1651679
-    alterId: 0
+    port: 443
+    type: vless
+    uuid: fd1d10c3-2185-421a-93f1-042f81c014e7
     cipher: auto
-    tls: false
+    tls: true
     skip-cert-verify: true
-    servername: 14.lowh.net
+    servername: ava.game.naver.com.violetvpn.my.id
     network: ws
     ws-opts:
-      path: /worryfree
+      path: /id-pusat
       headers:
-        Host: 14.lowh.net
+        Host: ava.game.naver.com.violetvpn.my.id
     udp: true
