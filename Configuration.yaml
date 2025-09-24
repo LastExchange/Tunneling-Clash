@@ -1,0 +1,52 @@
+#Knpsih_16 Config Clash
+
+proxy-providers:
+  WS Akun ID:
+    type: http
+    path: "./WS Akun ID.yaml"
+    url: https://d1.mk/BHPZGuD
+    interval: 1200
+  WS Akun SG:
+    type: http
+    path: "./WS Akun SG.yaml"
+    url: https://d1.mk/0f90XF1
+    interval: 1200
+  Akun Donghub :
+    type: http
+    path: "./akun donghub.yaml"
+    url: https://d1.mk/PsPDFnw
+    interval: 1200
+    
+proxy-groups:
+- name: Route WS Akun ID
+  type: load-balance
+  strategy: consistent-hashing
+  url: http://hi.bonds.id/ping
+  interval: 300
+  use:
+  - WS Akun ID
+- name: Route WS Akun SG
+  type: load-balance
+  strategy: consistent-hashing
+  url: http://hi.bonds.id/ping
+  interval: 300
+  use:
+  - WS Akun SG
+- name: Route Donghub
+  type: url-test
+  url: http://hi.bonds.id/ping
+  interval: 300
+  tolerance: 50
+  use:
+  - Akun Donghub
+- name: Traffic Umum
+  type: fallback
+  url: http://hi.bonds.id/ping
+  interval: 300
+  proxies:
+  - Route WS Akun SG
+  - Route WS Akun ID
+
+rules:
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- MATCH,GLOBAL

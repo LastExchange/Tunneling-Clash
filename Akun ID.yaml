@@ -1,0 +1,117 @@
+proxies:
+  - name: ID Biznet Trojan biznet1.1server.co
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: c7ab5e90-8899-11f0-81e0-1577c1651679
+    skip-cert-verify: true
+    sni: biznet1.1server.co
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: biznet1.1server.co
+    udp: true
+  - name: ID Herza Trojan hz1.cobadl.com
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: e012cf60-8899-11f0-80cb-1577c1651679
+    skip-cert-verify: true
+    sni: hz1.cobadl.com
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: hz1.cobadl.com
+    udp: true
+  - name: ID IKD Trojan id-ikd.xmbb.net
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: 260dfc70-889a-11f0-b24d-1577c1651679
+    skip-cert-verify: true
+    sni: ava.game.naver.com.id-ikd.kratod.my.id
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: ava.game.naver.com.id-ikd.kratod.my.id
+    udp: true
+  - name: ID Sanggoro Trojan 15.lowh.net
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: 58941480-8899-11f0-a886-1577c1651679
+    skip-cert-verify: true
+    sni: ava.game.naver.com.15-lowh.kratod.my.id
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: ava.game.naver.com.15-lowh.kratod.my.id
+    udp: true
+  - name: ID Sanggoro Vmess 14.lowh.net
+    server: ava.game.naver.com
+    port: 443
+    type: vmess
+    uuid: 3e49bf50-8899-11f0-850b-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.14-lowh.kratod.my.id
+    network: ws
+    ws-opts:
+      path: /hello
+      headers:
+        Host: ava.game.naver.com.14-lowh.kratod.my.id
+    udp: true
+  - name: ID Sanggoro Vmess NTLS 14.lowh.net
+    server: ava.game.naver.com
+    port: 80
+    type: vmess
+    uuid: 0261b040-98dd-11f0-9f27-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: 14.lowh.net
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: 14.lowh.net
+    udp: true
+  - name: ID IKD Vmess NTLS id-ikd.xmbb.net
+    server: ava.game.naver.com
+    port: 80
+    type: vmess
+    uuid: 40151670-889a-11f0-b4c2-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: ava.game.naver.com.id-ikd.kratod.my.id
+    network: ws
+    ws-opts:
+      path: /worryfree
+      headers:
+        Host: ava.game.naver.com.id-ikd.kratod.my.id
+    udp: true
+  - name: ID Herza x Biznet Vmess hz2.cobadl.com
+    server: ava.game.naver.com
+    port: 443
+    type: vmess
+    uuid: f8e6d420-8899-11f0-961a-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.hz2.kratod.my.id
+    network: ws
+    ws-opts:
+      path: /hello
+      headers:
+        Host: ava.game.naver.com.hz2.kratod.my.id
+    udp: true
