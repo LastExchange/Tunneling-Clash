@@ -80,25 +80,9 @@ proxy-groups:
     interval: 300
     use:
     - Akun Donghub
-  - name: Route ID
-    type: load-balance
-    strategy: consistent-hashing
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    use:
-    - WS Akun ID
-  - name: Route SG
-    type: load-balance
-    strategy: consistent-hashing
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    use:
-    - WS Akun SG
 
 rules:
-  - RULE-SET, RP Github, Route SG
   - RULE-SET, RP Bank ID, FALLBACK
   - RULE-SET, RP Gaming, BEST-PING
   - RULE-SET, RP Streaming, LOAD-BALANCE
-  - RULE-SET, RP Sosmed, Route ID
   - MATCH,LYCORIS
