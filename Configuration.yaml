@@ -29,7 +29,7 @@ rule-providers:
     type: http
     behavior: classical
     path: "./RP Gaming.yaml"
-    url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
     interval: 1200
   RP Streaming:
     type: http
