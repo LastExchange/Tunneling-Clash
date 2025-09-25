@@ -37,12 +37,6 @@ rule-providers:
     path: "./RP Streaming.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
     interval: 1200
-  RP Sosmed:
-    type: http
-    behavior: domain
-    path: "./RP Sosmed.yaml"
-    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Sosmed.yaml
-    interval: 1200
     
 proxy-groups:
   - name: LYCORIS
