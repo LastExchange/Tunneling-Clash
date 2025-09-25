@@ -23,20 +23,20 @@ rule-providers:
     type: http
     behavior: classical
     path: "./RP Bank ID.yaml
-    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Bank%20Id.yaml
-    interval: 1200 
+     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Bank%20Id.yaml
+     interval: 1200 
   RP Gaming:
     type: http
     behavior: classical
     path: "./RP Gaming.yaml
-    url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
-    interval: 1200
+     url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
+     interval: 1200
   RP Streaming:
     type: http
     behavior: classical
     path: "./RP Streaming.yaml
-    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
-    interval: 1200
+     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
+     interval: 1200
 
 proxy-groups:
   - name: LYCORIS
