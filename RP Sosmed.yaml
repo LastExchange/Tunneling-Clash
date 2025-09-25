@@ -107,6 +107,8 @@ payload:
 # > gravatar
   - DOMAIN-SUFFIX,gravatar.com
 # > Instagram
+  - DOMAIN-KEYWORD,instagram
+  - DOMAIN-KEYWORD,instagram.com
   - DOMAIN-SUFFIX,cdninstagram.com
   - DOMAIN-SUFFIX,ig.me
   - DOMAIN-SUFFIX,instagram.com
@@ -162,6 +164,8 @@ payload:
   - DOMAIN-SUFFIX,redditstatic.com
   - DOMAIN-SUFFIX,redditstatus.com
 # > TikTok
+  - DOMAIN-KEYWORD,tiktok
+  - DOMAIN-KEYWORD,tiktok.com
   - DOMAIN-SUFFIX,1889303550.rsc.cdn77.org
   - DOMAIN-SUFFIX,abtest-sg-tiktok.byteoversea.com
   - DOMAIN-SUFFIX,abtest-va-tiktok.byteoversea.com
