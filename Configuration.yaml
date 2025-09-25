@@ -48,5 +48,29 @@ proxy-groups:
     interval: 300
     use:
     - Akun Donghub
+  
+rule-providers:
+  RP Streaming:
+    type: http
+    path: "./RP Streaming.yaml
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
+    interval: 1200
+    behavior: classical
+  RP Gaming:
+    type: http
+    path: "./RP Gaming.yaml
+    url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
+    interval: 1200
+    behavior: classical
+  RP Bank ID:
+    type: http
+    path: "./RP Bank ID.yaml
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Bank%20Id.yaml
+    interval: 1200
+    behavior: classical
+
 rules:
+  - RULE-SET, RP Bank ID, FALLBACK
+  - RULE-SET, RP Gaming, BEST-PING
+  - RULE-SET, RP Streaming, LOAD-BALANCE
   - MATCH,LYCORIS
