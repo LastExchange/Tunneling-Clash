@@ -22,19 +22,19 @@ rule-providers:
   RP_Bank ID:
     type: http
     behavior: classical
-    path: "./RP_Bank ID.yaml
+    path: "./RP_Bank ID.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Bank%20Id.yaml
     interval: 1200 
   RP_Gaming:
     type: http
     behavior: classical
-    path: "./RP_Gaming.yaml
+    path: "./RP_Gaming.yaml"
     url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
     interval: 1200
   RP_Streaming:
     type: http
     behavior: classical
-    path: "./RP_Streaming.yaml
+    path: "./RP_Streaming.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
     interval: 1200
 
