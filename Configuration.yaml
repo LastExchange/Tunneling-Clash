@@ -37,7 +37,19 @@ rule-providers:
     path: "./RP Streaming.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
     interval: 1200
-
+  RP Sosmed:
+    type: http
+    behavior: domain
+    path: "./RP Sosmed.yaml"
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Sosmed.yaml
+    interval: 1200
+  RP Github:
+    type: http
+    behavior: domain
+    path: "./RP Github.yaml"
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Github.yaml
+    interval: 1200
+    
 proxy-groups:
   - name: LYCORIS
     type: select
@@ -68,9 +80,25 @@ proxy-groups:
     interval: 300
     use:
     - Akun Donghub
+  - name: Route ID
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    use:
+    - WS Akun ID
+  - name: Route SG
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    use:
+    - WS Akun SG
 
 rules:
   - RULE-SET, RP Bank ID, FALLBACK
   - RULE-SET, RP Gaming, BEST-PING
   - RULE-SET, RP Streaming, LOAD-BALANCE
+  - RULE-SET, RP Sosmed, Route ID
+  - RULE-SET, RP Github, Route SG
   - MATCH,LYCORIS
