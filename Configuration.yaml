@@ -43,12 +43,6 @@ rule-providers:
     path: "./RP Sosmed.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Sosmed.yaml
     interval: 1200
-  RP Github:
-    type: http
-    behavior: domain
-    path: "./RP Github.yaml"
-    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Github.yaml
-    interval: 1200
     
 proxy-groups:
   - name: LYCORIS
