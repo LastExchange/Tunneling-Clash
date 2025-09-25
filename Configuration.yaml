@@ -2,16 +2,19 @@
 
 proxies:  
 proxy-providers:
+
   WS Akun ID:
     type: http
     path: "./WS Akun ID.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20ID.yaml
     interval: 1200
+
   WS Akun SG:
     type: http
     path: "./WS Akun SG.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20SG.yaml
     interval: 1200
+
   Akun Donghub :
     type: http
     path: "./akun donghub.yaml"
@@ -50,18 +53,21 @@ proxy-groups:
     - Akun Donghub
   
 rule-providers:
+
   RP Streaming:
     type: http
     behavior: classical
     path: "./RP Streaming.yaml
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
     interval: 1200
+
   RP Gaming:
     type: http
     behavior: classical
     path: "./RP Gaming.yaml
     url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
     interval: 1200
+
   RP Bank ID:
     type: http
     behavior: classical
