@@ -96,9 +96,9 @@ proxy-groups:
     - WS Akun SG
 
 rules:
+  - RULE-SET, RP Github, Route SG
   - RULE-SET, RP Bank ID, FALLBACK
   - RULE-SET, RP Gaming, BEST-PING
   - RULE-SET, RP Streaming, LOAD-BALANCE
   - RULE-SET, RP Sosmed, Route ID
-  - RULE-SET, RP Github, Route SG
   - MATCH,LYCORIS
