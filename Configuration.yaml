@@ -18,6 +18,26 @@ proxy-providers:
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20Streaming%20WS.yaml
     interval: 1200
     
+rule-providers:
+  RP Bank ID:
+    type: http
+    behavior: classical
+    path: "./RP Bank ID.yaml
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Bank%20Id.yaml
+    interval: 1200 
+  RP Gaming:
+    type: http
+    behavior: classical
+    path: "./RP Gaming.yaml
+    url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
+    interval: 1200
+  RP Streaming:
+    type: http
+    behavior: classical
+    path: "./RP Streaming.yaml
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
+    interval: 1200
+
 proxy-groups:
   - name: LYCORIS
     type: select
@@ -48,26 +68,6 @@ proxy-groups:
     interval: 300
     use:
     - Akun Donghub
-  
-rule-providers:
-  RP Streaming:
-     type: http
-     behavior: classical
-     path: "./RP Streaming.yaml
-     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
-     interval: 1200
-  RP Gaming:
-     type: http
-     behavior: classical
-     path: "./RP Gaming.yaml
-     url: hhttps://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
-     interval: 1200
-  RP Bank ID:
-     type: http
-     behavior: classical
-     path: "./RP Bank ID.yaml
-     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Bank%20Id.yaml
-     interval: 1200
 
 rules:
   - RULE-SET, RP Bank ID, FALLBACK
