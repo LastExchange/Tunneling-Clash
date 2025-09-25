@@ -1,4 +1,4 @@
-#Knpsih_16 Config Clash
+#Knpsih_16 Config Clash (Optimized)
 
 proxies:  
 proxy-providers:
@@ -12,7 +12,7 @@ proxy-providers:
     path: "./WS Akun SG.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20SG.yaml
     interval: 1200
-  Akun Donghub :
+  Akun Donghub: # Mengganti nama agar konsisten
     type: http
     path: "./akun donghub.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20Streaming%20WS.yaml
@@ -39,38 +39,63 @@ rule-providers:
     interval: 1200
     
 proxy-groups:
+  # Grup Pilihan Utama
   - name: LYCORIS
     type: select
     proxies:
-      - LOAD-BALANCE
+      - AUTO-SELECT
       - BEST-PING
+      - LOAD-BALANCE
       - FALLBACK
       - DIRECT
+      
+  # Grup Otomatis Default (Opsional tapi direkomendasikan)
+  - name: AUTO-SELECT
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 150 # Interval wajar
+    tolerance: 50
+    use:
+      - WS Akun ID
+      - WS Akun SG
+      - Akun Donghub
+
+  # Grup Load Balance untuk Streaming
   - name: LOAD-BALANCE
     type: load-balance
     strategy: consistent-hashing
     url: https://www.gstatic.com/generate_204
-    interval: 5
+    interval: 200 # Interval lebih lama karena tidak butuh cek cepat
     use:
     - WS Akun ID
     - WS Akun SG
+
+  # Grup Ping Terbaik untuk Gaming
   - name: BEST-PING
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 5
+    interval: 150 # Interval wajar
     tolerance: 50
     use:
     - WS Akun ID
     - WS Akun SG
+
+  # Grup Cadangan jika ada masalah
   - name: FALLBACK
     type: fallback
     url: https://www.gstatic.com/generate_204
-    interval: 5
+    interval: 150 # Interval wajar
     use:
-    - Akun Donghub
+    - Akun Donghub   # <-- Prioritas utama
+    - WS Akun ID     # <-- Cadangan 1
+    - WS Akun SG     # <-- Cadangan 2
 
 rules:
   - RULE-SET, RP Bank ID, FALLBACK
+  
+  # Aturan spesifik untuk kebutuhan
   - RULE-SET, RP Gaming, BEST-PING
   - RULE-SET, RP Streaming, LOAD-BALANCE
-  - MATCH,LYCORIS
+  
+  # Semua traffic sisa akan otomatis memilih koneksi terbaik
+  - MATCH, AUTO-SELECT
