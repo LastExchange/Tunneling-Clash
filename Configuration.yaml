@@ -12,9 +12,9 @@ proxy-providers:
     path: "./WS Akun SG.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20SG.yaml
     interval: 1200
-  Akun Donghub: # Mengganti nama agar konsisten
+  Main VPN: # Mengganti nama agar konsisten
     type: http
-    path: "./akun donghub.yaml"
+    path: "./Main VPN.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20Streaming%20WS.yaml
     interval: 1200
     
@@ -56,9 +56,7 @@ proxy-groups:
     interval: 150 # Interval wajar
     tolerance: 50
     use:
-    - Akun Donghub   # <-- Prioritas utama
-    - WS Akun ID     # <-- Cadangan 1
-    - WS Akun SG     # <-- Cadangan 2
+    - Main VPN   # <-- Prioritas utama
 
   # Grup Load Balance untuk Streaming
   - name: LOAD-BALANCE
@@ -86,7 +84,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 150 # Interval wajar
     use:
-    - Akun Donghub   # <-- Prioritas utama
+    - Main VPN   # <-- Prioritas utama
     - WS Akun ID     # <-- Cadangan 1
     - WS Akun SG     # <-- Cadangan 2
 
