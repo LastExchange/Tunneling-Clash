@@ -1,4 +1,66 @@
 proxies:
+  - name: 3 ✨ 🇮🇩 ARENHOST GRPC CDN TLS
+    server: df.game.naver.com
+    port: 443
+    type: vmess
+    uuid: f9bf899c-d9bb-49a3-ad6e-eba6122bc8ff
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id1.foolvpn.me
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess
+    udp: true
+  - name: 2 ✨ 🇮🇩 ARENHOST WS CDN TLS
+    server: df.game.naver.com
+    port: 443
+    type: vmess
+    uuid: f9bf899c-d9bb-49a3-ad6e-eba6122bc8ff
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id1.foolvpn.me
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: id1.foolvpn.me
+    udp: true
+  - name: 1 ✨ 🇮🇩 ARENHOST WS CDN NTLS
+    server: df.game.naver.com
+    port: 80
+    type: vmess
+    uuid: f9bf899c-d9bb-49a3-ad6e-eba6122bc8ff
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: id1.foolvpn.me
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: id1.foolvpn.me
+    udp: true
+  - name: 44 🇸🇬 AMAZON TECHNOLOGIES INC  WS CDN TLS
+    server: df.game.naver.com
+    port: 443
+    type: vmess
+    uuid: 14a79148-3d75-41d6-a998-2be9edef88cb
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: singapore2.helloshuai.com
+    network: ws
+    ws-opts:
+      path: /39cb4/
+      headers:
+        Host: singapore2.helloshuai.com
+    udp: true
   - name: ID Sanggoro Trojan 15.lowh.net Wildcard
     server: ava.game.naver.com
     port: 443
