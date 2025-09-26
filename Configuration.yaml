@@ -51,9 +51,10 @@ proxy-groups:
       
   # Grup Otomatis Default (Opsional tapi direkomendasikan)
   - name: AUTO-SELECT
-    type: fallback
+    type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 150 # Interval wajar
+    tolerance: 50
     use:
     - Akun Donghub   # <-- Prioritas utama
     - WS Akun ID     # <-- Cadangan 1
