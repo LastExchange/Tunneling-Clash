@@ -116,9 +116,6 @@ proxy-groups:
     - WS Akun SG     # <-- Cadangan 2
 
 rules:
-  - AND,((NETWORK,UDP),(DST-PORT,123)),DIRECT
-  - AND,((NETWORK,UDP),(OR,((DST-PORT,443),(GEOSITE,youtube)))),REJECT
-  - GEOIP,PRIVATE,DIRECT,no-resolve
   - RULE-SET, RP Bank ID, FALLBACK
   
   # Aturan spesifik untuk kebutuhan
