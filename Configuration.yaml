@@ -56,9 +56,9 @@ proxy-groups:
     interval: 150 # Interval wajar
     tolerance: 50
     use:
+      - Akun Donghub
       - WS Akun ID
       - WS Akun SG
-      - Akun Donghub
 
   # Grup Load Balance untuk Streaming
   - name: LOAD-BALANCE
