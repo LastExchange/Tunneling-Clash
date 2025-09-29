@@ -1,75 +1,92 @@
 proxies:
-  - name: SG HE Trojan sg-trojan.1server.co
+  - name: SG_Oracle Corporation
     server: ava.game.naver.com
     port: 443
     type: trojan
-    password: c27e9ae0-6f70-11f0-a5c9-1577c1651679
-    skip-cert-verify: true
-    sni: sg-trojan.1server.co
+    password: eeeeeee3-eeee-4eee-aeee-eeeeeeeeeee5
     network: ws
-    ws-opts:
-      path: /welcome
-      headers:
-        Host: sg-trojan.1server.co
-    udp: true
-  - name: SG HE Vmess 10.lowh.net
-    server: ava.game.naver.com
-    port: 443
-    type: vmess
-    uuid: 14251aa0-8899-11f0-87fc-1577c1651679
-    alterId: 0
-    cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: ava.game.naver.com.10-lowh.kratod.biz.id
-    network: ws
+    servername: ava.game.naver.com.free.tunneling.dpdns.org
     ws-opts:
-      path: /hello
+      path: /129.150.58.86-57621
       headers:
-        Host: ava.game.naver.com.10-lowh.kratod.biz.id
-    udp: true
-  - name: SG Herza Vmess sghz.htmlcdn.net
-    server: ava.game.naver.com
-    port: 443
-    type: vmess
-    uuid: 59eaaa60-889a-11f0-9b37-1577c1651679
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: ava.game.naver.com.sghz.kratod.biz.id
-    network: ws
-    ws-opts:
-      path: /hello
-      headers:
-        Host: ava.game.naver.com.sghz.kratod.biz.id
-    udp: true
-  - name: SG GS Vmess 2.htmlcdn.net
-    server: ava.game.naver.com
-    port: 443
-    type: vmess
-    uuid: 8dc77db0-8899-11f0-aa0b-1577c1651679
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: ava.game.naver.com.2-htmlcdn.kratod.biz.id
-    network: ws
-    ws-opts:
-      path: /hello
-      headers:
-        Host: ava.game.naver.com.2-htmlcdn.kratod.biz.id
-    udp: true
-  - name: USA Trojan 3.lowh.net
+        Host: ava.game.naver.com.free.tunneling.dpdns.org
+  - name: SG_Oracle Corporation
     server: ava.game.naver.com
     port: 443
     type: trojan
-    password: ac3f4d00-8899-11f0-ae95-1577c1651679
-    skip-cert-verify: true
-    sni: ava.game.naver.com.3-lowh.kratod.biz.id
+    password: eeeeeee3-eeee-4eee-aeee-eeeeeeeeeee5
     network: ws
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.free.tunneling.dpdns.org
     ws-opts:
-      path: /welcome
+      path: /138.2.89.238-43254
       headers:
-        Host: ava.game.naver.com.3-lowh.kratod.biz.id
-    udp: true
+        Host: ava.game.naver.com.free.tunneling.dpdns.org
+  - name: SG_DigitalOcean
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: eeeeeee3-eeee-4eee-aeee-eeeeeeeeeee5
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.free.tunneling.dpdns.org
+    ws-opts:
+      path: /178.128.80.43-443
+      headers:
+        Host: ava.game.naver.com.free.tunneling.dpdns.org
+  - name: SG_Oracle Corporation
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: eeeeeee3-eeee-4eee-aeee-eeeeeeeeeee5
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.free.tunneling.dpdns.org
+    ws-opts:
+      path: /129.150.49.58-18650
+      headers:
+        Host: ava.game.naver.com.free.tunneling.dpdns.org
+  - name: SG_Oracle Corporation
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: eeeeeee3-eeee-4eee-aeee-eeeeeeeeeee5
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.free.tunneling.dpdns.org
+    ws-opts:
+      path: /129.150.36.188-53435
+      headers:
+        Host: ava.game.naver.com.free.tunneling.dpdns.org
+  - name: SG_Melbikomas UAB
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: eeeeeee3-eeee-4eee-aeee-eeeeeeeeeee5
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.free.tunneling.dpdns.org
+    ws-opts:
+      path: /91.192.81.154-2053
+      headers:
+        Host: ava.game.naver.com.free.tunneling.dpdns.org
+  - name: SG_DigitalOcean
+    server: ava.game.naver.com
+    port: 443
+    type: trojan
+    password: eeeeeee3-eeee-4eee-aeee-eeeeeeeeeee5
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    servername: ava.game.naver.com.free.tunneling.dpdns.org
+    ws-opts:
+      path: /143.198.196.196-8443
+      headers:
+        Host: ava.game.naver.com.free.tunneling.dpdns.org
