@@ -1,93 +1,38 @@
 proxies:
-  - name: 3 ✨ 🇮🇩 ARENHOST GRPC CDN TLS
-    server: df.game.naver.com
-    port: 443
-    type: vmess
-    uuid: f9bf899c-d9bb-49a3-ad6e-eba6122bc8ff
-    alterId: 0
-    cipher: auto
-    tls: true
+  - name: 1 ✨ 🇮🇩 ARENHOST WS CDN NTLS
+    server: ava.game.naver.com
+    port: 80
+    type: trojan
+    password: 30e9fa77-e10e-4ff3-aa59-f8c236103f6e
     skip-cert-verify: true
-    servername: id1.foolvpn.me
-    network: grpc
-    grpc-opts:
-      grpc-service-name: vmess
+    sni: id1.foolvpn.me
+    network: ws
+    ws-opts:
+      path: /trojan
+      headers:
+        Host: id1.foolvpn.me
     udp: true
   - name: 2 ✨ 🇮🇩 ARENHOST WS CDN TLS
-    server: df.game.naver.com
-    port: 443
-    type: vmess
-    uuid: f9bf899c-d9bb-49a3-ad6e-eba6122bc8ff
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: id1.foolvpn.me
-    network: ws
-    ws-opts:
-      path: /vmess
-      headers:
-        Host: id1.foolvpn.me
-    udp: true
-  - name: 1 ✨ 🇮🇩 ARENHOST WS CDN NTLS
-    server: df.game.naver.com
-    port: 80
-    type: vmess
-    uuid: f9bf899c-d9bb-49a3-ad6e-eba6122bc8ff
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    servername: id1.foolvpn.me
-    network: ws
-    ws-opts:
-      path: /vmess
-      headers:
-        Host: id1.foolvpn.me
-    udp: true
-  - name: 44 🇸🇬 AMAZON TECHNOLOGIES INC  WS CDN TLS
-    server: df.game.naver.com
-    port: 443
-    type: vmess
-    uuid: 14a79148-3d75-41d6-a998-2be9edef88cb
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: singapore2.helloshuai.com
-    network: ws
-    ws-opts:
-      path: /39cb4/
-      headers:
-        Host: singapore2.helloshuai.com
-    udp: true
-  - name: (ID) Pt Pusat Media 🇮🇩
     server: ava.game.naver.com
     port: 443
-    type: vless
-    uuid: fd1d10c3-2185-421a-93f1-042f81c014e7
-    cipher: auto
-    tls: true
+    type: trojan
+    password: 30e9fa77-e10e-4ff3-aa59-f8c236103f6e
     skip-cert-verify: true
-    servername: violetvpn.my.id
+    sni: ava.game.naver.com.id1.foolvpn.me
     network: ws
     ws-opts:
-      path: /id-pusat
+      path: /trojan
       headers:
-        Host: violetvpn.my.id
+        Host: ava.game.naver.com.id1.foolvpn.me
     udp: true
-  - name: (ID) Pt Pusat Media 🇮🇩 Wildcard
+  - name: 3 ✨ 🇮🇩 ARENHOST GRPC CDN TLS
     server: ava.game.naver.com
     port: 443
-    type: vless
-    uuid: fd1d10c3-2185-421a-93f1-042f81c014e7
-    cipher: auto
-    tls: true
+    type: trojan
+    password: 30e9fa77-e10e-4ff3-aa59-f8c236103f6e
     skip-cert-verify: true
-    servername: ava.game.naver.com.violetvpn.my.id
-    network: ws
-    ws-opts:
-      path: /id-pusat
-      headers:
-        Host: ava.game.naver.com.violetvpn.my.id
+    sni: ava.game.naver.com.id1.foolvpn.me
+    network: grpc
+    grpc-opts:
+      grpc-service-name: trojan
     udp: true
