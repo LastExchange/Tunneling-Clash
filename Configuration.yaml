@@ -126,4 +126,4 @@ rules:
   - RULE-SET, RP Streaming, LOAD-BALANCE
   
   # Semua traffic sisa akan otomatis memilih koneksi terbaik
-  - MATCH, AUTO-SELECT
+  - MATCH, LYCORIS
