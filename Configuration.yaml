@@ -85,7 +85,6 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 150 # Interval wajar
     use:
-    - My Traffic
     - WS Akun ID
     - WS Akun SG
 
@@ -118,7 +117,5 @@ proxy-groups:
     - My Traffic
 
 rules:
-  - RULE-SET, RP Bank ID, FALLBACK
-  - RULE-SET, RP Gaming, BEST-PING
   - RULE-SET, RP Hiburan, My Traffic
   - MATCH, LYCORIS
