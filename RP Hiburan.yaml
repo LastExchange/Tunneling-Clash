@@ -1,7 +1,8 @@
 payload:
   # Mulai baris ini kebawah bisa di edit/hapus
   
-  #Github
+  #Donghub
+  - DOMAIN,b2.skuy.co.id
   - DOMAIN-KEYWORD,donghua
   - DOMAIN-KEYWORD,donghuastore
   - DOMAIN-KEYWORD,b2.skuy
