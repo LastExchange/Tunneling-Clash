@@ -73,10 +73,9 @@ proxy-groups:
   - name: LYCORIS
     type: select
     proxies:
-      - AUTO-SELECT
+      - FALLBACK
       - BEST-PING
       - LOAD-BALANCE
-      - FALLBACK
       - DIRECT
       
   # Grup Otomatis Default (Opsional tapi direkomendasikan)
