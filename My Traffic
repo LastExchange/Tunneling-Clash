@@ -1,0 +1,27 @@
+proxies:
+  - name: 15.lowh.net ID Sanggoro biz
+    server: df.game.naver.com
+    port: 443
+    type: trojan
+    password: fd29d300-b247-11f0-884d-1577c1651679
+    skip-cert-verify: true
+    sni: 15.lowh.net
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: 15.lowh.net
+    udp: true
+  - name: 15.lowh.net ID Sanggoro Db Yt
+    server: support.zoom.us
+    port: 443
+    type: trojan
+    password: fd29d300-b247-11f0-884d-1577c1651679
+    skip-cert-verify: true
+    sni: 15.lowh.net
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: 15.lowh.net
+    udp: true
