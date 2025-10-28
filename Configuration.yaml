@@ -77,23 +77,14 @@ proxy-groups:
       - BEST-PING
       - LOAD-BALANCE
       - DIRECT
-      
-  # Grup Otomatis Default (Opsional tapi direkomendasikan)
-  - name: My Traffic
-    type: url-test
+
+  # Grup Cadangan jika ada masalah
+  - name: FALLBACK
+    type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 150 # Interval wajar
-    tolerance: 50
     use:
     - My Traffic
-
-  # Grup Load Balance untuk Streaming
-  - name: LOAD-BALANCE
-    type: load-balance
-    strategy: consistent-hashing
-    url: https://www.gstatic.com/generate_204
-    interval: 200 # Interval lebih lama karena tidak butuh cek cepat
-    use:
     - WS Akun ID
     - WS Akun SG
 
@@ -107,15 +98,23 @@ proxy-groups:
     - WS Akun ID
     - WS Akun SG
 
-  # Grup Cadangan jika ada masalah
-  - name: FALLBACK
+  # Grup Load Balance untuk Streaming
+  - name: LOAD-BALANCE
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://www.gstatic.com/generate_204
+    interval: 200 # Interval lebih lama karena tidak butuh cek cepat
+    use:
+    - WS Akun ID
+    - WS Akun SG
+      
+  # Grup Otomatis Default (Opsional tapi direkomendasikan)
+  - name: My Traffic
     type: fallback
     url: https://www.gstatic.com/generate_204
     interval: 150 # Interval wajar
     use:
     - My Traffic
-    - WS Akun ID
-    - WS Akun SG
 
 rules:
   - RULE-SET, RP Bank ID, FALLBACK
