@@ -42,10 +42,10 @@ proxy-providers:
     path: "./WS Akun SG.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20SG.yaml
     interval: 1200
-  Main VPN: # Mengganti nama agar konsisten
+  My Traffic: # Mengganti nama agar konsisten
     type: http
-    path: "./Main VPN.yaml"
-    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/Akun%20Streaming%20WS.yaml
+    path: "./My Traffic.yaml"
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/My%20Traffic.yaml
     interval: 1200
     
 rule-providers:
@@ -61,11 +61,11 @@ rule-providers:
     path: "./RP Gaming.yaml"
     url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Gaming.yaml
     interval: 1200
-  RP Streaming:
+  RP Hiburan:
     type: http
     behavior: domain
     path: "./RP Streaming.yaml"
-    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Streaming.yaml
+    url: https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/RP%20Hiburan.yaml
     interval: 1200
     
 proxy-groups:
@@ -80,13 +80,13 @@ proxy-groups:
       - DIRECT
       
   # Grup Otomatis Default (Opsional tapi direkomendasikan)
-  - name: AUTO-SELECT
+  - name: My Traffic
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 150 # Interval wajar
     tolerance: 50
     use:
-    - Main VPN   # <-- Prioritas utama
+    - My Traffic
 
   # Grup Load Balance untuk Streaming
   - name: LOAD-BALANCE
@@ -114,16 +114,12 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 150 # Interval wajar
     use:
-    - Main VPN   # <-- Prioritas utama
-    - WS Akun ID     # <-- Cadangan 1
-    - WS Akun SG     # <-- Cadangan 2
+    - My Traffic
+    - WS Akun ID
+    - WS Akun SG
 
 rules:
   - RULE-SET, RP Bank ID, FALLBACK
-  
-  # Aturan spesifik untuk kebutuhan
   - RULE-SET, RP Gaming, BEST-PING
-  - RULE-SET, RP Streaming, LOAD-BALANCE
-  
-  # Semua traffic sisa akan otomatis memilih koneksi terbaik
+  - RULE-SET, RP Hiburan, My Traffic
   - MATCH, LYCORIS
