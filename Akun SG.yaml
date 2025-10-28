@@ -1,27 +1,59 @@
 proxies:
-  - name: "[Digital Ocean]"
-    server: ava.game.naver.com
+  - name: 10.lowh.net SG HE Biz
+    server: df.game.naver.com
+    port: 443
+    type: vmess
+    uuid: de842460-b391-11f0-9edd-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 10.lowh.net
+    network: ws
+    ws-opts:
+      path: /hello
+      headers:
+        Host: 10.lowh.net
+    udp: true
+  - name: 10.lowh.net SG HE Db Yt
+    server: support.zoom.us
+    port: 443
+    type: vmess
+    uuid: de842460-b391-11f0-9edd-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 10.lowh.net
+    network: ws
+    ws-opts:
+      path: /hello
+      headers:
+        Host: 10.lowh.net
+    udp: true
+  - name: sg-trojan.1server.co SG HE Biz
+    server: df.game.naver.com
     port: 443
     type: trojan
-    password: aeb35be75f6a49b6a0868aefa3187fb6
+    password: aaba06b0-b392-11f0-9e16-1577c1651679
     skip-cert-verify: true
-    sni: ava.game.naver.com.gamang.gpj1.dpdns.org
+    sni: sg-trojan.1server.co
     network: ws
     ws-opts:
-      path: /Free-VPN-Geo-Project/104.248.145.216-443
+      path: /welcome
       headers:
-        Host: ava.game.naver.com.gamang.gpj1.dpdns.org
+        Host: sg-trojan.1server.co
     udp: true
-  - name: "[Digital Ocean] 2"
-    server: ava.game.naver.com
-    port: 80
+  - name: sg-trojan.1server.co SG HE Db Yt
+    server: support.zoom.us
+    port: 443
     type: trojan
-    password: aeb35be75f6a49b6a0868aefa3187fb6
+    password: aaba06b0-b392-11f0-9e16-1577c1651679
     skip-cert-verify: true
-    sni: ava.game.naver.com.gamang.gpj1.dpdns.org
+    sni: sg-trojan.1server.co
     network: ws
     ws-opts:
-      path: /Free-VPN-Geo-Project/104.248.145.216-443
+      path: /welcome
       headers:
-        Host: ava.game.naver.com.gamang.gpj1.dpdns.org
+        Host: sg-trojan.1server.co
     udp: true
