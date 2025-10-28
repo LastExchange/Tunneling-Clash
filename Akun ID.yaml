@@ -1,38 +1,33 @@
 proxies:
-  - name: 1 ✨ 🇮🇩 ARENHOST WS CDN NTLS
-    server: ava.game.naver.com
-    port: 80
-    type: trojan
-    password: 30e9fa77-e10e-4ff3-aa59-f8c236103f6e
+  - name: 14.lowh.net ID Sanggoro Biz
+    server: df.game.naver.com
+    port: 443
+    type: vmess
+    uuid: 43964f50-b392-11f0-8632-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
     skip-cert-verify: true
-    sni: id1.foolvpn.me
+    servername: 14.lowh.net
     network: ws
     ws-opts:
-      path: /trojan
+      path: /hello
       headers:
-        Host: id1.foolvpn.me
+        Host: 14.lowh.net
     udp: true
-  - name: 2 ✨ 🇮🇩 ARENHOST WS CDN TLS
-    server: ava.game.naver.com
+  - name: 14.lowh.net ID Sanggoro Db Yt
+    server: support.zoom.us
     port: 443
-    type: trojan
-    password: 30e9fa77-e10e-4ff3-aa59-f8c236103f6e
+    type: vmess
+    uuid: 43964f50-b392-11f0-8632-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
     skip-cert-verify: true
-    sni: ava.game.naver.com.id1.foolvpn.me
+    servername: 14.lowh.net
     network: ws
     ws-opts:
-      path: /trojan
+      path: /hello
       headers:
-        Host: ava.game.naver.com.id1.foolvpn.me
-    udp: true
-  - name: 3 ✨ 🇮🇩 ARENHOST GRPC CDN TLS
-    server: ava.game.naver.com
-    port: 443
-    type: trojan
-    password: 30e9fa77-e10e-4ff3-aa59-f8c236103f6e
-    skip-cert-verify: true
-    sni: ava.game.naver.com.id1.foolvpn.me
-    network: grpc
-    grpc-opts:
-      grpc-service-name: trojan
+        Host: 14.lowh.net
     udp: true
