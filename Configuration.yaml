@@ -27,6 +27,7 @@ dns:
     - https://cloudflare-dns.com/dns-query
     - 112.215.203.254
   default-nameserver:
+    - 121.52.71.20
     - 8.8.8.8
     - 1.1.1.1
     - 112.215.203.254
