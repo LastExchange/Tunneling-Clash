@@ -26,6 +26,7 @@ dns:
     - 1.1.1.1
   fallback:
     - 1.1.1.1
+    
 proxies:
 proxy-providers:
   WS Akun ID:
