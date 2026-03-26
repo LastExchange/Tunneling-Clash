@@ -1,0 +1,15 @@
+proxies:
+  - name: 15.lowh.net
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: fd29d300-b247-11f0-884d-1577c1651679
+    udp: true
+    tls: true
+    sni: 15.lowh.net
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: 15.lowh.net

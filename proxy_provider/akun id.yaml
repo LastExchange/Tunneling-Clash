@@ -1,0 +1,17 @@
+proxies:
+  - name: hz2.cobadl.com
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 85528f60-e3de-11f0-91ba-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: hz2.cobadl.com
+    network: ws
+    ws-opts:
+      path: /hello
+      headers:
+        Host: hz2.cobadl.com
+    udp: true

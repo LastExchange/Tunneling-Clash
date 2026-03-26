@@ -1,0 +1,17 @@
+proxies:
+  - name: 14.lowh.net
+    server: 104.17.3.81
+    port: 443
+    type: vmess
+    uuid: 43964f50-b392-11f0-8632-1577c1651679
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 14.lowh.net
+    network: ws
+    ws-opts:
+      path: /hello
+      headers:
+        Host: 14.lowh.net
+    udp: true

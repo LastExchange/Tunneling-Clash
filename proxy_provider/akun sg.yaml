@@ -1,0 +1,15 @@
+proxies:
+  - name: sg-trojan.1server.co
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: aaba06b0-b392-11f0-9e16-1577c1651679
+    udp: true
+    tls: true
+    sni: sg-trojan.1server.co
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /welcome
+      headers:
+        Host: sg-trojan.1server.co
