@@ -1,61 +1,83 @@
 proxies:
 proxy-providers:
   ID:
-    type: file
-    path: "./akun id.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20id.yaml"
+    path: "./proxy_provider/id.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   SG:
-    type: file
-    path: "./akun sg.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20sg.yaml"
+    path: "./proxy_provider/sg.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   Special:
-    type: file
-    path: "./akun special.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20special.yaml"
+    path: "./proxy_provider/special.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   Main:
-    type: file
-    path: "./akun 1.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%201.yaml"
+    path: "./proxy_provider/akun1.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   Backup:
-    type: file
-    path: "./akun 2.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%202.yaml"
+    path: "./proxy_provider/akun2.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
+
 rule-providers:
   RP Special:
-    type: file
+    type: http
     behavior: classical
-    path: "./special.yaml"
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/special.yaml"
+    path: "./rule_provider/special.yaml"
+    interval: 86400
   RP ID:
-    type: file
+    type: http
     behavior: classical
-    path: "./id.yaml"
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/id.yaml"
+    path: "./rule_provider/id.yaml"
+    interval: 86400
   RP SG:
-    type: file
+    type: http
     behavior: classical
-    path: "./sg.yaml"
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/sg.yaml"
+    path: "./rule_provider/sg.yaml"
+    interval: 86400
   RP Game:
-    type: file
+    type: http
     behavior: classical
-    path: "./gaming.yaml"
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/gaming.yaml"
+    path: "./rule_provider/gaming.yaml"
+    interval: 86400
   RP Umum:
-    type: file
+    type: http
     behavior: classical
-    path: "./umum.yaml"
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/umum.yaml"
+    path: "./rule_provider/umum.yaml"
+    interval: 86400
+
 proxy-groups:
 - name: LYCORIS
   type: select
@@ -109,6 +131,7 @@ proxy-groups:
   - Backup
   - ID
   - SG
+
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
