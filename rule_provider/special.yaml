@@ -1,0 +1,26 @@
+payload:
+  # Mulai baris ini kebawah bisa di edit/hapus
+
+  # web
+  - DOMAIN-SUFFIX,github.com
+  - DOMAIN-KEYWORD,eporner
+  - DOMAIN-KEYWORD,ahcdn
+  - DOMAIN-KEYWORD,canva.com
+ 
+  # donghub
+  - DOMAIN,restapi-micro.sutejo.com
+  - DOMAIN,config.donghuastore.com
+  - DOMAIN,r2.blobku.com
+  - DOMAIN,firebaseremoteconfigrealtime.googleapis.com
+  - DOMAIN-SUFFIX,sutejo.com
+  - DOMAIN-KEYWORD,sutejo
+  - DOMAIN-KEYWORD,donghua
+  
+  # komik
+  - DOMAIN,api.shngm.io
+  - DOMAIN,id.mgkomik.cc
+  - DOMAIN,komiku.com
+  - DOMAIN-KEYWORD,komik
+ 
+  # agenpulsa
+  - DOMAIN,isipulsa.web.id

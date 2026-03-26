@@ -1,0 +1,40 @@
+payload:
+
+  # --- Perbankan & Fintech (BCA, Dana, Flip) -
+  - DOMAIN-KEYWORD,klikbca
+  - DOMAIN-KEYWORD,dana
+  - DOMAIN-KEYWORD,alipay
+  - DOMAIN-KEYWORD,split.io
+  - DOMAIN-KEYWORD,branch.io
+  - DOMAIN-KEYWORD,flip.id
+  - DOMAIN-KEYWORD,intercom.io
+  - DOMAIN-SUFFIX,aliapp.org
+  - DST-PORT,33303
+
+  # --- E-Commerce (Shopee, Tokopedia, Lazada) ---
+  # Shopee (All-in-one: Login, Pay, Food, Live, Games)
+  - DOMAIN-KEYWORD,shopee
+  - DOMAIN-KEYWORD,shopeemobile
+  - DOMAIN-KEYWORD,airpay
+  - DOMAIN-KEYWORD,scredit
+  - DOMAIN-KEYWORD,cmf.co.id
+  - DOMAIN-SUFFIX,shp.ee
+  - DOMAIN-SUFFIX,appsflyer.com
+  
+  # Tokopedia & Lazada
+  - DOMAIN-KEYWORD,tokopedia
+  - DOMAIN-KEYWORD,lazada
+  - DOMAIN-KEYWORD,lzd-img
+
+  # --- Shopee Live (Network & Ports) ---
+  - IP-CIDR,202.179.138.114/32
+  - IP-CIDR,128.1.61.66/32
+  - IP-CIDR,150.109.91.8/32
+  - IP-CIDR,36.66.3.172/32
+  - IP-CIDR,138.113.116.5/32
+  - IP-CIDR,36.66.223.235/32
+  - IP-CIDR,150.109.91.7/32
+  - IP-CIDR,117.103.116.29/32
+  - DST-PORT,61947
+  - DST-PORT,61948
+  - DST-PORT,64355
