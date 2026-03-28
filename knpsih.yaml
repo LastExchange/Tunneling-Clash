@@ -1,5 +1,5 @@
 # ==========================================================
-# Knpsih_clash
+# Knpsih_clash - Final Fixed Version
 # ==========================================================
 
 tproxy-port: 7895
@@ -24,43 +24,40 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
+  
+  # Pastikan urutan dan indentasi ini tepat
+  respect-rules: true
+  
+  proxy-server-nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+    - https://1.1.1.1/dns-query
+    
   default-nameserver:
     - 1.1.1.1
     - 8.8.8.8
-  
-  # Bagian fix error Screenshot:
-  proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
-    - 1.1.1.1
-    - 8.8.8.8
-
+    
   nameserver:
     - https://1.1.1.1/dns-query
     - https://1.0.0.1/dns-query
     - tls://1.1.1.1:853
-    - tls://1.0.0.1:853
+    
   fallback:
     - https://dns.google/dns-query
     - 8.8.8.8
-    - 1.1.1.1
+    
   fake-ip-filter:
     - "*.lan"
     - "*.localdomain"
-    - "*.example"
-    - "*.invalid"
     - "*.localhost"
-    - "*.test"
     - "*.local"
-    - "*.home.arpa"
     - "+.tailscale.net"
-  respect-rules: true
 
 ntp:
   enable: true
   server: time.google.com
   port: 123
   interval: 15
-  write-to-system: false
 
 proxies: []
 
@@ -96,29 +93,41 @@ proxy-providers:
 
 rule-providers:
   RP_Adblock:
-    type: file
+    type: http
     behavior: classical
-    path: ./rule_provider/adblock.yaml
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/adblock.yaml"
+    path: "./rule_provider/adblock.yaml"
+    interval: 86400
   RP_Special:
-    type: file
+    type: http
     behavior: classical
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/special.yaml"
     path: "./rule_provider/special.yaml"
+    interval: 86400
   RP_ID:
-    type: file
+    type: http
     behavior: classical
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/id.yaml"
     path: "./rule_provider/id.yaml"
+    interval: 86400
   RP_SG:
-    type: file
+    type: http
     behavior: classical
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/sg.yaml"
     path: "./rule_provider/sg.yaml"
+    interval: 86400
   RP_Game:
-    type: file
+    type: http
     behavior: classical
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/gaming.yaml"
     path: "./rule_provider/gaming.yaml"
+    interval: 86400
   RP_Umum:
-    type: file
+    type: http
     behavior: classical
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/umum.yaml"
     path: "./rule_provider/umum.yaml"
+    interval: 86400
 
 proxy-groups:
   - name: LYCORIS
