@@ -6,7 +6,7 @@ mixed-port: 7893
 bind-address: "*"
 mode: rule
 allow-lan: true
-log-level: silent
+log-level: info
 external-controller: 0.0.0.0:9090
 unified-delay: true
 ipv6: false
