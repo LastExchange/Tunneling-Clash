@@ -90,13 +90,6 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  Backup:
-    type: file
-    path: "./proxy_provider/akun 2.yaml"
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
 rule-providers:
   RP Adblock:
     type: file
