@@ -1,3 +1,7 @@
+# ==========================================================
+# CONFIG CLASH / MIHOMO - OPTIMIZED FOR CLOUDFLARE DNS
+# ==========================================================
+
 tproxy-port: 7895
 redir-port: 7892
 port: 7890
@@ -6,12 +10,14 @@ mixed-port: 7893
 bind-address: "*"
 mode: rule
 allow-lan: true
-log-level: silent
+log-level: info
 external-controller: 0.0.0.0:9090
 unified-delay: true
 ipv6: false
 geodata-mode: true
 geodata-loader: memconservative
+
+# ================= DNS SETTINGS (CLOUDFLARE PRIORITY) =================
 dns:
   enable: true
   ipv6: false
@@ -19,174 +25,195 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
+  
+  # DNS untuk resolve alamat DoH/DoT
   default-nameserver:
-  - 223.5.5.5
-  - 119.29.29.29
+    - 1.1.1.1
+    - 1.0.0.1
+    - 8.8.8.8
+
+  # DNS Utama (Menggunakan DoH & DoT Cloudflare)
   nameserver:
-  - 223.5.5.5
-  - 119.29.29.29
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - tls://1.1.1.1:853
+    - tls://1.0.0.1:853
+
+  # DNS Cadangan jika Cloudflare bermasalah
   fallback:
-  - https://dns.cloudflare.com/dns-query
-  - https://dns.google/dns-query
-  - 114.114.114.114
+    - https://dns.google/dns-query
+    - 8.8.8.8
+    - 1.1.1.1
+
   fake-ip-filter:
-  - "*.lan"
-  - "*.localdomain"
-  - "*.example"
-  - "*.invalid"
-  - "*.localhost"
-  - "*.test"
-  - "*.local"
-  - "*.home.arpa"
-  respect-rules: false
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - "+.tailscale.net"
+  
+  # Memastikan DNS mengikuti aturan Proxy
+  respect-rules: true
+
 ntp:
   enable: true
   server: time.google.com
   port: 123
   interval: 15
   write-to-system: false
-proxies:
+
+# ================= PROXY PROVIDERS =================
+proxies: [] # Biarkan kosong jika menggunakan provider
+
 proxy-providers:
   ID:
     type: http
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20id.yaml"
     path: "./proxy_provider/id.yaml"
     interval: 3600
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+  
   SG:
     type: http
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20sg.yaml"
     path: "./proxy_provider/sg.yaml"
     interval: 3600
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+  
   Special:
     type: http
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20special.yaml"
     path: "./proxy_provider/special.yaml"
     interval: 3600
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+  
   Main:
     type: file
-    path: "./akun 1.yaml"
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+    path: "./akun_1.yaml" # Disarankan ubah nama file: hapus spasi
+    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+  
   Backup:
     type: http
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%202.yaml"
     path: "./proxy_provider/akun2.yaml"
     interval: 3600
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+
+# ================= RULE PROVIDERS =================
 rule-providers:
-  RP Adblock:
+  RP_Adblock:
     type: file
     behavior: classical
     path: ./rule_provider/adblock.yaml
-  RP Special:
+  RP_Special:
     type: file
     behavior: classical
     path: "./rule_provider/special.yaml"
-  RP ID:
+  RP_ID:
     type: file
     behavior: classical
     path: "./rule_provider/id.yaml"
-  RP SG:
+  RP_SG:
     type: file
     behavior: classical
     path: "./rule_provider/sg.yaml"
-  RP Game:
+  RP_Game:
     type: file
     behavior: classical
     path: "./rule_provider/gaming.yaml"
-  RP Umum:
+  RP_Umum:
     type: file
     behavior: classical
     path: "./rule_provider/umum.yaml"
+
+# ================= PROXY GROUPS =================
 proxy-groups:
-- name: LYCORIS
-  type: select
-  proxies:
-  - My Traffic
-  - ID
-  - SG
-  - DIRECT
-- name: Ads
-  type: select
-  proxies:
-  - REJECT
-  - My Traffic
-- name: Special
-  type: fallback
-  use:
-  - Special
-- name: Streaming
-  type: fallback
-  use:
-  - Backup
-- name: Game
-  type: url-test
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-  proxies:
-  - DIRECT
-  use:
-  - Special
-  - SG
-- name: Tailscale
-  type: fallback
-  proxies:
-  - My Traffic
-  - DIRECT
-- name: SG
-  type: fallback
-  use:
-  - SG
-- name: ID
-  type: fallback
-  use:
-  - ID
-  - Backup
-- name: My Traffic
-  type: fallback
-  use:
-  - Main
-  - Backup
-  - ID
-  - SG
+  - name: LYCORIS
+    type: select
+    proxies:
+      - My Traffic
+      - ID
+      - SG
+      - DIRECT
+
+  - name: Ads
+    type: select
+    proxies:
+      - REJECT
+      - My Traffic
+
+  - name: Special
+    type: fallback
+    use: [Special]
+
+  - name: Streaming
+    type: fallback
+    use: [Backup]
+
+  - name: Game
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies: [DIRECT]
+    use: [Special, SG]
+
+  - name: Tailscale
+    type: fallback
+    proxies:
+      - My Traffic
+      - DIRECT
+
+  - name: SG
+    type: fallback
+    use: [SG]
+
+  - name: ID
+    type: fallback
+    use: [ID, Backup]
+
+  - name: My Traffic
+    type: fallback
+    use: [Main, Backup, ID, SG]
+
+# ================= RULES =================
 rules:
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-- DOMAIN-KEYWORD,tailscale,Tailscale
-- GEOSITE,category-ads-all,Ads
-- RULE-SET,RP Adblock,Ads
-- RULE-SET,RP Game,Game
-- GEOSITE,facebook,Streaming
-- GEOSITE,tiktok,Streaming
-- GEOSITE,youtube,Streaming
-- GEOSITE,netflix,Streaming
-- RULE-SET,RP ID,ID
-- RULE-SET,RP SG,SG
-- RULE-SET,RP Special,Special
-- GEOSITE,whatsapp,Special
-- GEOSITE,telegram,Special
-- GEOSITE,instagram,Special
-- RULE-SET,RP Umum,My Traffic
-- MATCH,LYCORIS
+  # Bypass Local Traffic
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  
+  # Custom Rules
+  - DOMAIN-KEYWORD,tailscale,Tailscale
+  - GEOSITE,category-ads-all,Ads
+  - RULE-SET,RP_Adblock,Ads
+  
+  # Gaming
+  - RULE-SET,RP_Game,Game
+  
+  # Streaming & Social Media
+  - GEOSITE,facebook,Streaming
+  - GEOSITE,tiktok,Streaming
+  - GEOSITE,youtube,Streaming
+  - GEOSITE,netflix,Streaming
+  - GEOSITE,instagram,Special
+  
+  # Chatting
+  - GEOSITE,whatsapp,Special
+  - GEOSITE,telegram,Special
+  
+  # Regional Rules
+  - RULE-SET,RP_ID,ID
+  - RULE-SET,RP_SG,SG
+  - RULE-SET,RP_Special,Special
+  
+  # General & Final Match
+  - RULE-SET,RP_Umum,My Traffic
+  - MATCH,LYCORIS
+  
