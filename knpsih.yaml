@@ -1,5 +1,5 @@
 # ==========================================================
-# CONFIG CLASH / MIHOMO - OPTIMIZED FOR CLOUDFLARE DNS
+# Knpsih_clash
 # ==========================================================
 
 tproxy-port: 7895
@@ -17,7 +17,6 @@ ipv6: false
 geodata-mode: true
 geodata-loader: memconservative
 
-# ================= DNS SETTINGS (CLOUDFLARE PRIORITY) =================
 dns:
   enable: true
   ipv6: false
@@ -25,26 +24,25 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
-  
-  # DNS untuk resolve alamat DoH/DoT
   default-nameserver:
     - 1.1.1.1
-    - 1.0.0.1
+    - 8.8.8.8
+  
+  # Bagian fix error Screenshot:
+  proxy-server-nameserver:
+    - https://1.1.1.1/dns-query
+    - 1.1.1.1
     - 8.8.8.8
 
-  # DNS Utama (Menggunakan DoH & DoT Cloudflare)
   nameserver:
     - https://1.1.1.1/dns-query
     - https://1.0.0.1/dns-query
     - tls://1.1.1.1:853
     - tls://1.0.0.1:853
-
-  # DNS Cadangan jika Cloudflare bermasalah
   fallback:
     - https://dns.google/dns-query
     - 8.8.8.8
     - 1.1.1.1
-
   fake-ip-filter:
     - "*.lan"
     - "*.localdomain"
@@ -55,8 +53,6 @@ dns:
     - "*.local"
     - "*.home.arpa"
     - "+.tailscale.net"
-  
-  # Memastikan DNS mengikuti aturan Proxy
   respect-rules: true
 
 ntp:
@@ -66,8 +62,7 @@ ntp:
   interval: 15
   write-to-system: false
 
-# ================= PROXY PROVIDERS =================
-proxies: [] # Biarkan kosong jika menggunakan provider
+proxies: []
 
 proxy-providers:
   ID:
@@ -76,26 +71,22 @@ proxy-providers:
     path: "./proxy_provider/id.yaml"
     interval: 3600
     health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
-  
   SG:
     type: http
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20sg.yaml"
     path: "./proxy_provider/sg.yaml"
     interval: 3600
     health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
-  
   Special:
     type: http
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20special.yaml"
     path: "./proxy_provider/special.yaml"
     interval: 3600
     health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
-  
   Main:
     type: file
-    path: "./akun_1.yaml" # Disarankan ubah nama file: hapus spasi
+    path: "./akun_1.yaml"
     health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
-  
   Backup:
     type: http
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%202.yaml"
@@ -103,7 +94,6 @@ proxy-providers:
     interval: 3600
     health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
 
-# ================= RULE PROVIDERS =================
 rule-providers:
   RP_Adblock:
     type: file
@@ -130,30 +120,19 @@ rule-providers:
     behavior: classical
     path: "./rule_provider/umum.yaml"
 
-# ================= PROXY GROUPS =================
 proxy-groups:
   - name: LYCORIS
     type: select
-    proxies:
-      - My Traffic
-      - ID
-      - SG
-      - DIRECT
-
+    proxies: [My Traffic, ID, SG, DIRECT]
   - name: Ads
     type: select
-    proxies:
-      - REJECT
-      - My Traffic
-
+    proxies: [REJECT, My Traffic]
   - name: Special
     type: fallback
     use: [Special]
-
   - name: Streaming
     type: fallback
     use: [Backup]
-
   - name: Game
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -161,59 +140,38 @@ proxy-groups:
     tolerance: 50
     proxies: [DIRECT]
     use: [Special, SG]
-
   - name: Tailscale
     type: fallback
-    proxies:
-      - My Traffic
-      - DIRECT
-
+    proxies: [My Traffic, DIRECT]
   - name: SG
     type: fallback
     use: [SG]
-
   - name: ID
     type: fallback
     use: [ID, Backup]
-
   - name: My Traffic
     type: fallback
     use: [Main, Backup, ID, SG]
 
-# ================= RULES =================
 rules:
-  # Bypass Local Traffic
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-  
-  # Custom Rules
   - DOMAIN-KEYWORD,tailscale,Tailscale
   - GEOSITE,category-ads-all,Ads
   - RULE-SET,RP_Adblock,Ads
-  
-  # Gaming
   - RULE-SET,RP_Game,Game
-  
-  # Streaming & Social Media
   - GEOSITE,facebook,Streaming
   - GEOSITE,tiktok,Streaming
   - GEOSITE,youtube,Streaming
   - GEOSITE,netflix,Streaming
   - GEOSITE,instagram,Special
-  
-  # Chatting
   - GEOSITE,whatsapp,Special
   - GEOSITE,telegram,Special
-  
-  # Regional Rules
   - RULE-SET,RP_ID,ID
   - RULE-SET,RP_SG,SG
   - RULE-SET,RP_Special,Special
-  
-  # General & Final Match
   - RULE-SET,RP_Umum,My Traffic
   - MATCH,LYCORIS
-  
