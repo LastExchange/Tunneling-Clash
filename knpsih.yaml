@@ -61,22 +61,28 @@ ntp:
 proxies:
 proxy-providers:
   ID:
-    type: file
-    path: "./proxy_provider/akun id.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20id.yaml"
+    path: "./proxy_provider/id.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   SG:
-    type: file
-    path: "./proxy_provider/akun sg.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20sg.yaml"
+    path: "./proxy_provider/sg.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   Special:
-    type: file
-    path: "./proxy_provider/akun special.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20special.yaml"
+    path: "./proxy_provider/special.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
@@ -89,8 +95,10 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
   Backup:
-    type: file
-    path: "./proxy_provider/akun 2.yaml"
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%202.yaml"
+    path: "./proxy_provider/akun2.yaml"
+    interval: 3600
     health-check:
       enable: true
       interval: 600
