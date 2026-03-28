@@ -11,16 +11,6 @@ external-controller: 0.0.0.0:9090
 external-ui: "/usr/share/openclash/ui"
 external-ui-name: metacubexd
 external-ui-url: https://codeload.github.com/MetaCubeX/metacubexd/zip/refs/heads/gh-pages
-secret: knpsih
-keep-alive-interval: 15
-keep-alive-idle: 600
-experimental:
-  quic-go-disable-gso: true
-geox-url: {}
-profile:
-  store-selected: true
-authentication:
-- Clash:WAGsN7xG
 unified-delay: true
 ipv6: false
 geodata-mode: true
