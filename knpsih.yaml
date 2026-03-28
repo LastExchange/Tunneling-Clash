@@ -1,81 +1,125 @@
+tproxy-port: 7895
+redir-port: 7892
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+bind-address: "*"
+mode: rule
+allow-lan: true
+log-level: silent
+external-controller: 0.0.0.0:9090
+external-ui: "/usr/share/openclash/ui"
+external-ui-name: metacubexd
+external-ui-url: https://codeload.github.com/MetaCubeX/metacubexd/zip/refs/heads/gh-pages
+secret: knpsih
+keep-alive-interval: 15
+keep-alive-idle: 600
+experimental:
+  quic-go-disable-gso: true
+geox-url: {}
+profile:
+  store-selected: true
+authentication:
+- Clash:WAGsN7xG
+unified-delay: true
+ipv6: false
+geodata-mode: true
+geodata-loader: memconservative
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:7874
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  fallback:
+  - https://dns.cloudflare.com/dns-query
+  - https://dns.google/dns-query
+  - 114.114.114.114
+  fake-ip-filter:
+  - "*.lan"
+  - "*.localdomain"
+  - "*.example"
+  - "*.invalid"
+  - "*.localhost"
+  - "*.test"
+  - "*.local"
+  - "*.home.arpa"
+  respect-rules: false
+ntp:
+  enable: true
+  server: time.google.com
+  port: 123
+  interval: 15
+  write-to-system: true
 proxies:
 proxy-providers:
   ID:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20id.yaml"
-    path: "./proxy_provider/id.yaml"
-    interval: 3600
+    type: file
+    path: "./proxy_provider/akun id.yaml"
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   SG:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20sg.yaml"
-    path: "./proxy_provider/sg.yaml"
-    interval: 3600
+    type: file
+    path: "./proxy_provider/akun sg.yaml"
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   Special:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20special.yaml"
-    path: "./proxy_provider/special.yaml"
-    interval: 3600
+    type: file
+    path: "./proxy_provider/akun special.yaml"
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   Main:
     type: file
-    path: "./akun 1.yaml"
+    path: "./proxy_provider/akun 1.yaml"
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
   Backup:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%202.yaml"
-    path: "./proxy_provider/akun2.yaml"
-    interval: 3600
+    type: file
+    path: "./proxy_provider/akun 2.yaml"
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-
 rule-providers:
+  RP Adblock:
+    type: file
+    behavior: classical
+    path: ./rule_provider/adblock.yaml
   RP Special:
-    type: http
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/special.yaml"
     path: "./rule_provider/special.yaml"
-    interval: 86400
   RP ID:
-    type: http
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/id.yaml"
     path: "./rule_provider/id.yaml"
-    interval: 86400
   RP SG:
-    type: http
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/sg.yaml"
     path: "./rule_provider/sg.yaml"
-    interval: 86400
   RP Game:
-    type: http
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/gaming.yaml"
     path: "./rule_provider/gaming.yaml"
-    interval: 86400
   RP Umum:
-    type: http
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/umum.yaml"
     path: "./rule_provider/umum.yaml"
-    interval: 86400
-
 proxy-groups:
 - name: LYCORIS
   type: select
@@ -129,7 +173,6 @@ proxy-groups:
   - Backup
   - ID
   - SG
-
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
@@ -138,6 +181,7 @@ rules:
 - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
 - DOMAIN-KEYWORD,tailscale,Tailscale
 - GEOSITE,category-ads-all,Ads
+- RULE-SET,RP Adblock,Ads
 - RULE-SET,RP Game,Game
 - GEOSITE,facebook,Streaming
 - GEOSITE,tiktok,Streaming
