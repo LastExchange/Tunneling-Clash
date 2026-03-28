@@ -8,9 +8,6 @@ mode: rule
 allow-lan: true
 log-level: silent
 external-controller: 0.0.0.0:9090
-external-ui: "/usr/share/openclash/ui"
-external-ui-name: metacubexd
-external-ui-url: https://codeload.github.com/MetaCubeX/metacubexd/zip/refs/heads/gh-pages
 unified-delay: true
 ipv6: false
 geodata-mode: true
@@ -47,7 +44,7 @@ ntp:
   server: time.google.com
   port: 123
   interval: 15
-  write-to-system: true
+  write-to-system: false
 proxies:
 proxy-providers:
   ID:
