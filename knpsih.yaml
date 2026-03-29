@@ -1,5 +1,5 @@
 # ==========================================================
-# Knpsih_clash - Final Fixed Version
+# Knpsih_clash
 # ==========================================================
 
 tproxy-port: 7895
@@ -24,8 +24,6 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
-  
-  # Pastikan urutan dan indentasi ini tepat
   respect-rules: true
   
   proxy-server-nameserver:
@@ -63,66 +61,73 @@ proxies: []
 
 proxy-providers:
   ID:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20id.yaml"
-    path: "./proxy_provider/id.yaml"
-    interval: 3600
-    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+    type: file
+    path: "./proxy_provider/akun id.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
   SG:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20sg.yaml"
-    path: "./proxy_provider/sg.yaml"
-    interval: 3600
-    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+    type: file
+    path: "./proxy_provider/akun sg.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
   Special:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%20special.yaml"
-    path: "./proxy_provider/special.yaml"
-    interval: 3600
-    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+    type: file
+    path: "./proxy_provider/akun special.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
   Main:
     type: file
-    path: "./akun_1.yaml"
-    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+    path: "./proxy_provider/akun 1.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
   Backup:
-    type: http
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/akun%202.yaml"
-    path: "./proxy_provider/akun2.yaml"
-    interval: 3600
-    health-check: {enable: true, interval: 600, url: http://www.gstatic.com/generate_204}
+    type: file
+    path: "./proxy_provider/akun 2.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
 
 rule-providers:
-  RP_Adblock:
+  RP Adblock:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/adblock.yaml"
     path: "./rule_provider/adblock.yaml"
     interval: 86400
-  RP_Special:
+  RP Special:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/special.yaml"
     path: "./rule_provider/special.yaml"
     interval: 86400
-  RP_ID:
+  RP ID:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/id.yaml"
     path: "./rule_provider/id.yaml"
     interval: 86400
-  RP_SG:
+  RP SG:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/sg.yaml"
     path: "./rule_provider/sg.yaml"
     interval: 86400
-  RP_Game:
+  RP Game:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/gaming.yaml"
     path: "./rule_provider/gaming.yaml"
     interval: 86400
-  RP_Umum:
+  RP Umum:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/umum.yaml"
@@ -132,35 +137,70 @@ rule-providers:
 proxy-groups:
   - name: LYCORIS
     type: select
-    proxies: [My Traffic, ID, SG, DIRECT]
+    proxies:
+      - My Traffic
+      - ID
+      - SG
+      - DIRECT
+
   - name: Ads
     type: select
-    proxies: [REJECT, My Traffic]
+    proxies:
+      - REJECT
+      - My Traffic
+
   - name: Special
     type: fallback
-    use: [Special]
+    lazy: true
+    use:
+      - Special
+
   - name: Streaming
     type: fallback
-    use: [Backup]
+    lazy: true
+    use:
+      - Backup
+
   - name: Game
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    proxies: [DIRECT]
-    use: [Special, SG]
+    lazy: true
+    proxies:
+      - DIRECT
+    use:
+      - Special
+      - SG
+
   - name: Tailscale
-    type: fallback
-    proxies: [My Traffic, DIRECT]
+    type: select
+    proxies:
+      - My Traffic
+
   - name: SG
     type: fallback
-    use: [SG]
+    lazy: true
+    use:
+      - SG
+
   - name: ID
     type: fallback
-    use: [ID, Backup]
+    lazy: true
+    use:
+      - ID
+      - Backup
+
   - name: My Traffic
     type: fallback
-    use: [Main, Backup, ID, SG]
+    lazy: true
+    use:
+      - Main
+      - Backup
+      - ID
+      - SG
+    proxies:
+      - DIRECT
 
 rules:
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
@@ -170,8 +210,8 @@ rules:
   - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
   - DOMAIN-KEYWORD,tailscale,Tailscale
   - GEOSITE,category-ads-all,Ads
-  - RULE-SET,RP_Adblock,Ads
-  - RULE-SET,RP_Game,Game
+  - RULE-SET,RP Adblock,Ads
+  - RULE-SET,RP Game,Game
   - GEOSITE,facebook,Streaming
   - GEOSITE,tiktok,Streaming
   - GEOSITE,youtube,Streaming
@@ -179,8 +219,8 @@ rules:
   - GEOSITE,instagram,Special
   - GEOSITE,whatsapp,Special
   - GEOSITE,telegram,Special
-  - RULE-SET,RP_ID,ID
-  - RULE-SET,RP_SG,SG
-  - RULE-SET,RP_Special,Special
-  - RULE-SET,RP_Umum,My Traffic
+  - RULE-SET,RP ID,ID
+  - RULE-SET,RP SG,SG
+  - RULE-SET,RP Special,Special
+  - RULE-SET,RP Umum,My Traffic
   - MATCH,LYCORIS
