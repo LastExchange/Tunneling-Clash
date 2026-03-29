@@ -173,11 +173,6 @@ proxy-groups:
       - Special
       - SG
 
-  - name: Tailscale
-    type: select
-    proxies:
-      - My Traffic
-
   - name: SG
     type: fallback
     lazy: true
@@ -199,8 +194,6 @@ proxy-groups:
       - Backup
       - ID
       - SG
-    proxies:
-      - DIRECT
 
 rules:
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
@@ -208,7 +201,7 @@ rules:
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-  - DOMAIN-KEYWORD,tailscale,Tailscale
+  - DOMAIN-KEYWORD,tailscale,LYCORIS
   - GEOSITE,category-ads-all,Ads
   - RULE-SET,RP Adblock,Ads
   - RULE-SET,RP Game,Game
