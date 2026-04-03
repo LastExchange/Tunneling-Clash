@@ -5,7 +5,7 @@ payload:
   - DOMAIN-SUFFIX,googlesyndication.com
   - DOMAIN,adservice.google.com
   - DOMAIN,analytics.google.com
-  - DOMAIN-KEYWOARD,analytics
+  - DOMAIN-KEYWORD,analytics
   - DOMAIN,redirector.googlevideo.com
 
   # --- 2. Mobile Ad Networks (Unity, Colony, Media.net) ---
