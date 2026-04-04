@@ -7,6 +7,7 @@ payload:
   - DOMAIN-KEYWORD,ahcdn
   - DOMAIN-KEYWORD,canva.com
   - DOMAIN-KEYWORD,xlaxiata
+  - DOMAIN,panel.zidstore.net
  
   # donghub
   - DOMAIN,restapi-micro.sutejo.com
