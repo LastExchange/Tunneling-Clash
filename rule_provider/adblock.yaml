@@ -154,6 +154,7 @@ payload:
   - DOMAIN,affiliationjs.s3.amazonaws.com
   - DOMAIN,g.jwpsrv.com
   - DOMAIN,ssl.p.jwpcdn.com
+  - DOMAIN,adtago.s3.amazonaws.com
 
     # RULE-SET MELOLO ADBLOCK (UPDATED)
 
