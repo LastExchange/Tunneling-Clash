@@ -1,0 +1,91 @@
+payload:
+
+  # --- KEYWORDS ---
+  - DOMAIN-KEYWORD,myorbit
+  - DOMAIN-KEYWORD,airpay
+  - DOMAIN-KEYWORD,alfagift
+  - DOMAIN-KEYWORD,alipay
+  - DOMAIN-KEYWORD,anthropic
+  - DOMAIN-KEYWORD,bank
+  - DOMAIN-KEYWORD,bca
+  - DOMAIN-KEYWORD,bitcoin
+  - DOMAIN-KEYWORD,bni
+  - DOMAIN-KEYWORD,branch.io
+  - DOMAIN-KEYWORD,bri
+  - DOMAIN-KEYWORD,btn
+  - DOMAIN-KEYWORD,cimbniaga
+  - DOMAIN-KEYWORD,claude
+  - DOMAIN-KEYWORD,cmf.co.id
+  - DOMAIN-KEYWORD,dana
+  - DOMAIN-KEYWORD,dbankcdn
+  - DOMAIN-KEYWORD,dbankcloud
+  - DOMAIN-KEYWORD,dbs
+  - DOMAIN-KEYWORD,deepseek
+  - DOMAIN-KEYWORD,flip.id
+  - DOMAIN-KEYWORD,gopay
+  - DOMAIN-KEYWORD,hicloud
+  - DOMAIN-KEYWORD,huawei
+  - DOMAIN-KEYWORD,i-saku
+  - DOMAIN-KEYWORD,indodax
+  - DOMAIN-KEYWORD,indomaretpointku
+  - DOMAIN-KEYWORD,intercom.io
+  - DOMAIN-KEYWORD,jenius
+  - DOMAIN-KEYWORD,klikbca
+  - DOMAIN-KEYWORD,komik
+  - DOMAIN-KEYWORD,lazada
+  - DOMAIN-KEYWORD,linkaja
+  - DOMAIN-KEYWORD,livin
+  - DOMAIN-KEYWORD,lzd-img
+  - DOMAIN-KEYWORD,mandiri
+  - DOMAIN-KEYWORD,mashu
+  - DOMAIN-KEYWORD,mgkomik
+  - DOMAIN-KEYWORD,mirror
+  - DOMAIN-KEYWORD,mirrors
+  - DOMAIN-KEYWORD,neobank
+  - DOMAIN-KEYWORD,ospserver
+  - DOMAIN-KEYWORD,ovo
+  - DOMAIN-KEYWORD,paypal
+  - DOMAIN-KEYWORD,pegadaian
+  - DOMAIN-KEYWORD,samsung
+  - DOMAIN-KEYWORD,scredit
+  - DOMAIN-KEYWORD,seabank
+  - DOMAIN-KEYWORD,shngm
+  - DOMAIN-KEYWORD,shinigami
+  - DOMAIN-KEYWORD,shopee
+  - DOMAIN-KEYWORD,shopeemobile
+  - DOMAIN-KEYWORD,split.io
+  - DOMAIN-KEYWORD,telkomsel
+  - DOMAIN-KEYWORD,tmtreader
+  - DOMAIN-KEYWORD,tmwrbyuob
+  - DOMAIN-KEYWORD,tokopedia
+  - DOMAIN-KEYWORD,xiaomi
+  - DOMAIN-KEYWORD,xlaxiata
+  - DOMAIN-KEYWORD,xlsmart
+  
+  # --- DOMAIN SUFFIX ---
+  - DOMAIN-SUFFIX,shp.ee
+  - DOMAIN-SUFFIX,appsflyer.com
+  - DOMAIN-SUFFIX,aliapp.org
+  - DOMAIN-SUFFIX,sentry.io
+  
+  # --- DOMAIN ---
+  - DOMAIN,isipulsa.web.id
+  - DOMAIN,me-crypto.mashu.lol
+  - DOMAIN,me.mashu.lol
+  - DOMAIN,api.segment.io
+  
+  # --- PORT  ---
+  - DST-PORT,33303
+  - DST-PORT,61947
+  - DST-PORT,61948
+  - DST-PORT,64355
+  
+  # --- IP  ---
+  - IP-CIDR,202.179.138.114/32
+  - IP-CIDR,128.1.61.66/32
+  - IP-CIDR,150.109.91.8/32
+  - IP-CIDR,36.66.3.172/32
+  - IP-CIDR,138.113.116.5/32
+  - IP-CIDR,36.66.223.235/32
+  - IP-CIDR,150.109.91.7/32
+  - IP-CIDR,117.103.116.29/32

@@ -1,0 +1,13 @@
+payload:
+
+  # --- KEYWORDS ---
+  - DOMAIN-KEYWORD,whatsapp
+  
+  # --- DOMAIN SUFFIX ---
+  - DOMAIN-SUFFIX, 
+  
+  # --- DOMAIN ---
+  - DOMAIN,
+ 
+  # --- PORT ---
+  - DST-PORT,3478

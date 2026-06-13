@@ -1,0 +1,11 @@
+payload:
+
+  # --- KEYWORDS ---
+  - DOMAIN-KEYWORD,google
+  - DOMAIN-KEYWORD,gvt
+  
+  # --- DOMAIN SUFFIX ---
+  - DOMAIN-SUFFIX, 
+  
+  # --- DOMAIN ---
+  - DOMAIN,

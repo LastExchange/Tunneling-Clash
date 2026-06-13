@@ -1,0 +1,32 @@
+payload:
+
+  # --- KEYWORDS ---
+  - DOMAIN-KEYWORD,github
+  - DOMAIN-KEYWORD,howdy
+  - DOMAIN-KEYWORD,termux
+  - DOMAIN-KEYWORD,lupacine
+  - DOMAIN-KEYWORD,luzcine
+  - DOMAIN-KEYWORD,sutejo
+  - DOMAIN-KEYWORD,donghua
+  - DOMAIN-KEYWORD,donghub
+  - DOMAIN-KEYWORD,anime
+  - DOMAIN-KEYWORD,discord
+  - DOMAIN-KEYWORD,ahcdn
+  - DOMAIN-KEYWORD,canva.com
+  - DOMAIN-KEYWORD,bucketku
+  - DOMAIN-KEYWORD,asurafic
+  - DOMAIN-KEYWORD,r2.
+  
+  # --- DOMAIN SUFFIX ---
+  - DOMAIN-SUFFIX,ferizy.com
+  
+  # --- DOMAIN ---
+  - DOMAIN,vod-license-m.bytepluscdn.com
+  - DOMAIN,panel.zidstore.net
+  - DOMAIN,restapi-micro.sutejo.com
+  - DOMAIN,config.donghuastore.com
+  - DOMAIN,r2.blobku.com
+  - DOMAIN,r2.s3ku.com
+  - DOMAIN,r2.bubleku.com
+  - DOMAIN,r2.obstacleku.com
+  - DOMAIN,r2.edgeku.com

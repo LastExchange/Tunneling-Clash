@@ -1,0 +1,10 @@
+payload:
+
+  # --- KEYWORDS ---
+  - DOMAIN-KEYWORD,instagram
+  
+  # --- DOMAIN SUFFIX ---
+  - DOMAIN-SUFFIX, 
+  
+  # --- DOMAIN ---
+  - DOMAIN,

@@ -1,0 +1,96 @@
+payload:
+
+  # --- KEYWORDS ---
+  - DOMAIN-KEYWORD,ads
+  - DOMAIN-KEYWORD,advertising
+  - DOMAIN-KEYWORD,doubleclick
+  - DOMAIN-KEYWORD,adservice
+  - DOMAIN-KEYWORD,pangle
+  - DOMAIN-KEYWORD,pglstatp
+  - DOMAIN-KEYWORD,analytics
+  
+  # --- DOMAIN SUFFIX ---
+  - DOMAIN-SUFFIX,viiraipj.com
+  - DOMAIN-SUFFIX,upsidedownrightside.com
+  - DOMAIN-SUFFIX,luckyorange.com
+  - DOMAIN-SUFFIX,hotjar.com
+  - DOMAIN-SUFFIX,bugsnag.com
+  - DOMAIN-SUFFIX,
+  - DOMAIN-SUFFIX,
+  - DOMAIN-SUFFIX,
+  
+  # --- DOMAIN ---
+  - DOMAIN,analytics.google.com
+  - DOMAIN,api.bugsnag.com
+  - DOMAIN,app.bugsnag.com
+  - DOMAIN,browser.sentry-cdn.com
+  - DOMAIN,app.getsentry.com
+  - DOMAIN,business-api.tiktok.com
+  - DOMAIN,log.byteoversea.com
+  - DOMAIN,udcm.yahoo.com
+  - DOMAIN,log.fc.yahoo.com
+  - DOMAIN,appmetrica.yandex.ru
+  - DOMAIN,metrika.yandex.ru
+  - DOMAIN,tracking.rus.miui.com
+  - DOMAIN,affiliationjs.s3.amazonaws.com
+  - DOMAIN,widgets.pinterest.com
+  - DOMAIN,tracking.india.miui.com
+  - DOMAIN,an.facebook.com
+  
+  - DOMAIN,media.net
+  - DOMAIN,static.media.net
+  - DOMAIN,mouseflow.com
+  - DOMAIN,cdn.mouseflow.com
+  - DOMAIN,api.mouseflow.com
+  - DOMAIN,tools.mouseflow.com
+  - DOMAIN,cdn-test.mouseflow.com
+  - DOMAIN,cdn-test.mouseflow.com
+  - DOMAIN,api.luckyorange.com
+  - DOMAIN,realtime.luckyorange.com
+  - DOMAIN,cdn.luckyorange.com
+  - DOMAIN,upload.luckyorange.net
+  - DOMAIN,cs.luckyorange.net
+  - DOMAIN,settings.luckyorange.net
+  - DOMAIN,adm.hotjar.com
+  - DOMAIN,insights.hotjar.com
+  - DOMAIN,script.hotjar.com
+  - DOMAIN,surveys.hotjar.com
+  - DOMAIN,freshmarketer.com
+  - DOMAIN,fwtracks.freshmarketer.com
+  - DOMAIN,events.reddit.com
+  - DOMAIN,analytics-sg.tiktok.com
+  - DOMAIN,log.pinterest.com
+  - DOMAIN,geo.yahoo.com
+  - DOMAIN,analytics.query.yahoo.com
+  - DOMAIN,adfstat.yandex.ru
+  - DOMAIN,adfox.yandex.ru
+  - DOMAIN,iot-logser.realme.com
+  - DOMAIN,metrics.icloud.com
+  - DOMAIN,metrics.mzstatic.com
+  - DOMAIN,books-analytics-events.apple.com
+  - DOMAIN,weather-analytics-events.apple.com
+  - DOMAIN,notes-analytics-events.apple.com
+  - DOMAIN,metrics.data.hicloud.com
+  - DOMAIN,metrics2.data.hicloud.com
+  - DOMAIN,grs.hicloud.com
+  - DOMAIN,logservice.hicloud.com
+  - DOMAIN,logbak.hicloud.com
+  - DOMAIN,smetrics.samsung.com
+  - DOMAIN,samsung-com.112.2o7.net
+  - DOMAIN,samsung-com.112.2o7.net
+  - DOMAIN,analytics-api.samsunghealthcn.com
+  - DOMAIN,analytics.pointdrive.linkedin.com
+  - DOMAIN,analytics.yahoo.com
+  - DOMAIN,logservice1.hicloud.com
+  - DOMAIN,iot-eu-logser.realme.com
+  - DOMAIN,events.redditmedia.com
+  - DOMAIN,trk.pinterest.com
+  - DOMAIN,claritybt.freshmarketer.com
+  - DOMAIN,adtago.s3.amazonaws.com
+  - DOMAIN,
+  - DOMAIN,
+  - DOMAIN,
+  - DOMAIN,
+  - DOMAIN,
+  - DOMAIN,
+  - DOMAIN,

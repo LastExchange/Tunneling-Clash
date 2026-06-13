@@ -1,0 +1,16 @@
+payload:
+
+  # --- KEYWORDS ---
+  - DOMAIN-KEYWORD,tiktok
+  - DOMAIN-KEYWORD,melolo
+  - DOMAIN-KEYWORD,byteoversea
+  - DOMAIN-KEYWORD,sgsnssdk
+  - DOMAIN-KEYWORD,ibytedtos
+  - DOMAIN-KEYWORD,fizzopic
+  
+  # --- DOMAIN SUFFIX ---
+  - DOMAIN-SUFFIX,byteicdn.com
+  - DOMAIN-SUFFIX,ibyteimg.com
+  
+  # --- DOMAIN ---
+  - DOMAIN,
