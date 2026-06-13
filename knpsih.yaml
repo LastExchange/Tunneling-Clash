@@ -2,8 +2,8 @@
 # Knpsih_clash
 # ==========================================================
 
-tproxy-port: 7895
-redir-port: 7892
+tproxy-port: 9898
+redir-port: 9797
 port: 7890
 socks-port: 7891
 mixed-port: 7893
@@ -12,17 +12,26 @@ mode: rule
 allow-lan: true
 log-level: info
 external-controller: 0.0.0.0:9090
+external-ui: ./dashboard
 unified-delay: true
 ipv6: false
-geodata-mode: true
-geodata-loader: memconservative
+
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+  force-domain:
+    - "+"
 
 dns:
   enable: true
   ipv6: false
   listen: 0.0.0.0:7874
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  enhanced-mode: redir-host
   use-hosts: true
   respect-rules: true
   
@@ -36,28 +45,52 @@ dns:
     - 8.8.8.8
     
   nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
     - https://1.1.1.1/dns-query
-    - https://1.0.0.1/dns-query
-    - tls://1.1.1.1:853
+    - https://dns.google/dns-query
     
   fallback:
-    - https://dns.google/dns-query
     - 8.8.8.8
-    
-  fake-ip-filter:
-    - "*.lan"
-    - "*.localdomain"
-    - "*.localhost"
-    - "*.local"
-    - "+.tailscale.net"
+    - https://dns.google/dns-query
+
+fallback-filter:
+  geoip: true
+  geoip-code: ID
+  ipcidr:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    - 255.255.255.255/32
+  domain:
+    - "+.google.com"
+    - "+.facebook.com"
+    - "+.youtube.com"
+    - "+.githubusercontent.com"
+    - "+.googlevideo.com"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "+.*"
 
 ntp:
   enable: true
   server: time.google.com
   port: 123
   interval: 15
-
-proxies: []
+  
+proxies:
 
 proxy-providers:
   ID:
@@ -66,111 +99,70 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: https://ping.xmbb.net/generate_204
+
   SG:
     type: file
     path: "./proxy_provider/akun sg.yaml"
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
-  Special:
+      url: https://ping.xmbb.net/generate_204
+      
+  Cek:
     type: file
-    path: "./proxy_provider/akun special.yaml"
+    path: "./proxy_provider/cek.yaml"
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
-  Main:
-    type: file
-    path: "./proxy_provider/akun 1.yaml"
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  Backup:
-    type: file
-    path: "./proxy_provider/akun 2.yaml"
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: https://ping.xmbb.net/generate_204
 
 rule-providers:
-  RP Adblock:
-    type: http
+  Block:
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/adblock.yaml"
-    path: "./rule_provider/adblock.yaml"
-    interval: 86400
-  RP Special:
-    type: http
+    path: "./rule_provider/block.yaml"
+
+  Game:
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/special.yaml"
-    path: "./rule_provider/special.yaml"
-    interval: 86400
-  RP ID:
-    type: http
+    path: "./rule_provider/game.yaml"
+
+  Whatsapp:
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/id.yaml"
+    path: "./rule_provider/whatsapp.yaml"
+
+  ID:
+    type: file
+    behavior: classical
     path: "./rule_provider/id.yaml"
-    interval: 86400
-  RP SG:
-    type: http
+
+  SG:
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/sg.yaml"
     path: "./rule_provider/sg.yaml"
-    interval: 86400
-  RP Game:
-    type: http
+
+  Umum:
+    type: file
     behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/gaming.yaml"
-    path: "./rule_provider/gaming.yaml"
-    interval: 86400
-  RP Umum:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/umum.yaml"
     path: "./rule_provider/umum.yaml"
-    interval: 86400
 
 proxy-groups:
-  - name: LYCORIS
-    type: select
-    proxies:
-      - My Traffic
-      - ID
-      - SG
-      - DIRECT
-
   - name: Ads
     type: select
     proxies:
       - REJECT
       - My Traffic
 
-  - name: Special
-    type: fallback
-    lazy: true
-    use:
-      - Special
-
-  - name: Streaming
-    type: fallback
-    lazy: true
-    use:
-      - Backup
-
-  - name: Game
+  - name: Gaming
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://ping.xmbb.net/generate_204
     interval: 300
     tolerance: 50
     lazy: true
-    proxies:
-      - DIRECT
     use:
-      - Special
+      - ID
       - SG
 
   - name: SG
@@ -184,36 +176,32 @@ proxy-groups:
     lazy: true
     use:
       - ID
-      - Backup
 
   - name: My Traffic
     type: fallback
     lazy: true
     use:
-      - Main
-      - Backup
       - ID
       - SG
 
 rules:
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-  - DOMAIN-KEYWORD,tailscale,LYCORIS
+  - IP-CIDR,192.168.1.0/24,DIRECT,no-resolve
+  - IP-CIDR,192.168.2.0/24,DIRECT,no-resolve
+  - IP-CIDR,192.168.8.0/24,DIRECT,no-resolve
+  
+  - AND,((NETWORK,udp),(DST-PORT,443)),REJECT 
+
   - GEOSITE,category-ads-all,Ads
-  - RULE-SET,RP Adblock,Ads
-  - RULE-SET,RP Game,Game
-  - GEOSITE,facebook,Streaming
-  - GEOSITE,tiktok,Streaming
-  - GEOSITE,youtube,Streaming
-  - GEOSITE,netflix,Streaming
-  - GEOSITE,instagram,Special
-  - GEOSITE,whatsapp,Special
-  - GEOSITE,telegram,Special
-  - RULE-SET,RP ID,ID
-  - RULE-SET,RP SG,SG
-  - RULE-SET,RP Special,Special
-  - RULE-SET,RP Umum,My Traffic
-  - MATCH,LYCORIS
+  - RULE-SET,Block,Ads
+  
+  - RULE-SET,Game,Gaming
+  
+  - RULE-SET,Whatsapp,ID
+  
+  - RULE-SET,ID,ID
+  - RULE-SET,SG,SG
+  
+  - RULE-SET,Umum,My Traffic
+  
+  - MATCH,My Traffic
