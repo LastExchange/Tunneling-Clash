@@ -108,9 +108,19 @@ proxy-providers:
       enable: true
       interval: 600
       url: https://ping.xmbb.net/generate_204
+
+  Special:
+    type: file
+    path: "./proxy_provider/akun special.yaml"
+    health-check:
+      enable: true
+      interval: 600
+      url: https://ping.xmbb.net/generate_204
       
   Cek:
-    type: file
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/proxy_provider/cek.yaml"
+    interval: 3600
     path: "./proxy_provider/cek.yaml"
     health-check:
       enable: true
@@ -119,32 +129,86 @@ proxy-providers:
 
 rule-providers:
   Block:
-    type: file
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/block.yaml"
+    interval: 3600
     behavior: classical
     path: "./rule_provider/block.yaml"
 
+  Special:
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/special.yaml"
+    interval: 3600
+    behavior: classical
+    path: "./rule_provider/special.yaml"
+
   Game:
-    type: file
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/game.yaml"
+    interval: 3600
     behavior: classical
     path: "./rule_provider/game.yaml"
 
+  Facebook:
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/facebook.yaml"
+    interval: 3600
+    behavior: classical
+    path: "./rule_provider/facebook.yaml"
+
+  Tiktok:
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/tiktok.yaml"
+    interval: 3600
+    behavior: classical
+    path: "./rule_provider/tiktok.yaml"
+
+  Youtube:
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/youtube.yaml"
+    interval: 3600
+    behavior: classical
+    path: "./rule_provider/youtube.yaml"
+
+  Instagram:
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/instagram.yaml"
+    interval: 3600
+    behavior: classical
+    path: "./rule_provider/instagram.yaml"
+
   Whatsapp:
-    type: file
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/whatsapp.yaml"
+    interval: 3600
     behavior: classical
     path: "./rule_provider/whatsapp.yaml"
 
   ID:
-    type: file
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/id.yaml"
+    interval: 3600
     behavior: classical
     path: "./rule_provider/id.yaml"
 
   SG:
-    type: file
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/sg.yaml"
+    interval: 3600
     behavior: classical
     path: "./rule_provider/sg.yaml"
 
+  Google:
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/google.yaml"
+    interval: 3600
+    behavior: classical
+    path: "./rule_provider/google.yaml"
+
   Umum:
-    type: file
+    type: http
+    url: "https://raw.githubusercontent.com/LastExchange/Tunneling-Clash/refs/heads/main/rule_provider/umum.yaml"
+    interval: 3600
     behavior: classical
     path: "./rule_provider/umum.yaml"
 
@@ -155,6 +219,12 @@ proxy-groups:
       - REJECT
       - My Traffic
 
+  - name: Special
+    type: fallback
+    lazy: true
+    use:
+      - Special
+
   - name: Gaming
     type: url-test
     url: https://ping.xmbb.net/generate_204
@@ -162,6 +232,7 @@ proxy-groups:
     tolerance: 50
     lazy: true
     use:
+      - Special
       - ID
       - SG
 
@@ -177,12 +248,21 @@ proxy-groups:
     use:
       - ID
 
+  - name: All Traffic
+    type: fallback
+    lazy: true
+    proxies:
+      - My Traffic
+      - ID
+      - SG
+      - DIRECT
+
   - name: My Traffic
     type: fallback
     lazy: true
     use:
-      - ID
       - SG
+      - ID
 
 rules:
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
@@ -191,16 +271,25 @@ rules:
   - IP-CIDR,192.168.8.0/24,DIRECT,no-resolve
   
   - AND,((NETWORK,udp),(DST-PORT,443)),REJECT 
+  
+  - DOMAIN-KEYWORD,tailscale,All Traffic
 
   - GEOSITE,category-ads-all,Ads
   - RULE-SET,Block,Ads
   
   - RULE-SET,Game,Gaming
   
+  - RULE-SET,Facebook,SG
+  - RULE-SET,Tiktok,SG
+  - RULE-SET,Youtube,SG
+  - RULE-SET,Instagram,ID
   - RULE-SET,Whatsapp,ID
   
   - RULE-SET,ID,ID
   - RULE-SET,SG,SG
+  - RULE-SET,Google,SG
+  
+  - RULE-SET,Special,Special
   
   - RULE-SET,Umum,My Traffic
   
