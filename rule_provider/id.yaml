@@ -61,12 +61,18 @@ payload:
   - DOMAIN-KEYWORD,xiaomi
   - DOMAIN-KEYWORD,xlaxiata
   - DOMAIN-KEYWORD,xlsmart
+  - DOMAIN-KEYWORD,pay-users
+  - DOMAIN-KEYWORD,wallet.google
+  - DOMAIN-KEYWORD,mi.com
+  - DOMAIN-KEYWORD,i02.appmifile.com
+  - DOMAIN-KEYWORD,mi.co.id
   
   # --- DOMAIN SUFFIX ---
   - DOMAIN-SUFFIX,shp.ee
   - DOMAIN-SUFFIX,appsflyer.com
   - DOMAIN-SUFFIX,aliapp.org
   - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,cloudflare.com
   
   # --- DOMAIN ---
   - DOMAIN,isipulsa.web.id
